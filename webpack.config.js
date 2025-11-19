@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js', // точка входа
@@ -10,15 +10,21 @@ module.exports = {
     clean: true, // очищает dist перед сборкой
   },
   mode: 'development', // режим по умолчанию
+  devtool: 'inline-source-map', // для удобной отладки
   module: {
     rules: [
       {
-        test: /\.txt$/,
+        test: /\.txt$/i,
         use: 'raw-loader',
       },
       {
-        test: /\.css$/,
-        use: [MiniCSSExtractPlugin.loader, 'css-loader'],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.js$/i, // транспиляция через Babel
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
     ],
   },
@@ -26,7 +32,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new MiniCSSExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
   ],
   devServer: {
     static: {
