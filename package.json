@@ -1,10 +1,10 @@
 {
   "name": "ajs",
   "version": "1.0.0",
-  "description": "'Homework task 2'",
+  "description": "Homework task 2",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "test": "jest",
@@ -27,16 +27,13 @@
     "url": "https://github.com/pfokin92/modules_2/issues"
   },
   "homepage": "https://github.com/pfokin92/modules_2#readme",
-  "dependencies": {
-    "babel-loader": "^8.2.2",
-    "webpack-cli": "^4.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.8",
     "babel-jest": "^25.4.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
     "css-loader": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
