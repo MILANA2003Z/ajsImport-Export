@@ -1,8 +1,8 @@
-import Character from "./domain.js";
+import Character from './domain.js';
 
 export default class Game {
   start() {
-    console.log("game started");
+    // Game started
   }
 }
 
@@ -13,11 +13,10 @@ export class GameSavingData {
 }
 
 export function readGameSaving() {
-  // Заглушка для чтения сохранений
   return null;
 }
 
 export function writeGameSaving(data) {
-  // Заглушка для записи сохранений
-  console.log("Saving game data:", data);
+  // Saving game data
+  return data;
 }
